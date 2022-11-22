@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
+import ListItem from './components/listItem/ListItem';
 
 export default function App() {
 
@@ -33,6 +34,7 @@ export default function App() {
         showMovementInput = { showMovementInput } 
         setShowMovementInput = { setShowMovementInput }
       />
+      <ListItem/>
       <ButtonFab 
         setShowMovementInput = { setShowMovementInput }
       />
