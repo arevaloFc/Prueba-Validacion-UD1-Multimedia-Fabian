@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const ListItem = ({ movements }) => {
+const ListItem = ({ movements, deleteMovement }) => {
 
     return (
         <View style={styles.containerList} >
@@ -8,6 +8,7 @@ const ListItem = ({ movements }) => {
                 <Text style={ styles.date }>Fecha: { movements.dateMovement } </Text>
                 <Text style={ styles.amount }>Importe: { movements.amount } € </Text>
                 <Text style={ styles.description }>Descripción: { movements.description } </Text>
+                <Text onPress={() => deleteMovement(movements)} > Eliminar </Text>
             </View>
         </View>  
     )

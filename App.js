@@ -23,6 +23,14 @@ export default function App() {
     setMovements(() => [movement,...movements]);
   }
 
+  /* Eliminar ingreso o gasto */
+  const deleteMovement = ( movement ) => {
+  
+    setMovements(() => movements.filter(( value ) => value.id !== movement.id));
+    setBalance((parseInt(balance) - parseInt(movement.amount)));
+  
+  }
+
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
@@ -50,6 +58,7 @@ export default function App() {
             <ListItem 
               key = { movementsData.id }
               movements = { movementsData.item }
+              deleteMovement = { deleteMovement }
             />
           )
         }}
