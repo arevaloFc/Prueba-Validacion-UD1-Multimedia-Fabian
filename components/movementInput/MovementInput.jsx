@@ -5,6 +5,17 @@ const MovementInput = ({
     showMovementInput, 
     setShowMovementInput }) => {
 
+    const changeDateMovementHandler = ( value ) => {
+
+        setMovement(( movement )=>{
+            return{
+                ...movement,
+                dateMovement:value
+            }
+        });
+
+    }
+
     const changenDescriptionHandler = ( value ) => {
 
         setMovement(( movement )=>{
@@ -15,6 +26,7 @@ const MovementInput = ({
         });
 
     }
+
 
     const ocultarModal = () => {
         setShowMovementInput( false )
@@ -29,6 +41,7 @@ const MovementInput = ({
                             style = { styles.firstBlockStyles }
                             placeholder = 'Fecha'
                             keyboardType = "text"
+                            onChangeText = { changeDateMovementHandler }
                         />
                         <TextInput
                             style = { styles.firstBlockStyles }
@@ -41,7 +54,7 @@ const MovementInput = ({
                             style = { styles.textDescription }
                             placeholder = 'Descripción'
                             keyboardType = "text"
-                            onChangeText={changenDescriptionHandler}
+                            onChangeText = { changenDescriptionHandler }
                         />
                         <View style = { styles.enterButton }>
                             <Button 
