@@ -1,6 +1,6 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
-const TotalBalance = () => {
+const TotalBalance = ({ balance }) => {
 
     return (
         <View style = { styles.containerTotalBalance }>
@@ -10,7 +10,7 @@ const TotalBalance = () => {
                 source = { require("../../assets/paisaje01.jpg") } 
             >
                 <Text style = { styles.textBalance }> Balance </Text>
-                <Text style = { styles.totalMoney }> € </Text>
+                <Text style = { styles.totalMoney }> {balance} € </Text>
             </ImageBackground>
         </View>
     )

@@ -26,9 +26,14 @@ export default function App() {
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
+  /* Dinero total */
+  const [ balance, setBalance ] = useState(0)
+
   return (
     <View style = { styles.container }>
-      <TotalBalance/>
+      <TotalBalance
+        balance = { balance }
+      />
       <MovementInput 
         movement = { movement }
         setMovement = { setMovement }
