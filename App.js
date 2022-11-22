@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
@@ -34,7 +34,18 @@ export default function App() {
         showMovementInput = { showMovementInput } 
         setShowMovementInput = { setShowMovementInput }
       />
-      <ListItem/>
+      <FlatList 
+        data = { movements } 
+        renderItem = {( movementsData ) => {
+          return (
+            <ListItem 
+              key = { movementsData.id }
+              movements = { movementsData.item }
+            />
+          )
+        }}
+        style = { styles.flatlist } 
+      />
       <ButtonFab 
         setShowMovementInput = { setShowMovementInput }
       />
