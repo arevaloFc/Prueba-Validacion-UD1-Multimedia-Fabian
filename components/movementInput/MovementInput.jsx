@@ -1,11 +1,15 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Modal, StyleSheet} from 'react-native';
 
 const MovementInput = () => {
 
     return (
-        <View>
-            <Text>Hola</Text>
-        </View>
+        <Modal animationType = { 'fade' } transparent = { true }>
+            <ImageBackground source={require("../../assets/entrada.jpg")} 
+                resizeMode="cover" 
+                style={styles.imageBackground}>
+
+            </ImageBackground>
+        </Modal>
     )
 }
 
