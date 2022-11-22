@@ -1,10 +1,16 @@
-import { StyleSheet, Text, View} from 'react-native';
+import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 
 const TotalBalance = () => {
 
     return (
         <View>
-            <Text> Hola </Text>
+            <ImageBackground 
+                source = { require("../../assets/paisaje01.jpg") } 
+                resizeMode="cover"
+            >
+                <Text>Balance</Text>
+                <Text> €</Text>
+            </ImageBackground>
         </View>
     )
 }
