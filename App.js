@@ -63,6 +63,7 @@ export default function App() {
               key = { movementsData.id }
               movements = { movementsData.item }
               deleteMovement = { deleteMovement }
+              setShowMovementInput = {setShowMovementInput}
             />
           )
         }}
