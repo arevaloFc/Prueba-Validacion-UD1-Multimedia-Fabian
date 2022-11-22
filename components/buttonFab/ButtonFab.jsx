@@ -1,10 +1,10 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
 import { palette } from '../../constants/theme';
 
-const ButtonFab = () => {
+const ButtonFab = ({ setShowMovementInput }) => {
 
     return (
-        <Pressable style={({ pressed }) => [
+        <Pressable onPress={() => {setShowMovementInput(true)}} style = {({ pressed }) => [
             {
                 backgroundColor: pressed
                 ?  palette.light.secondaryLight
@@ -12,7 +12,7 @@ const ButtonFab = () => {
             },
             styles.pressableStyle
         ]}>
-            <Text style={styles.newMovement}>+</Text>
+            <Text style = { styles.newMovement }> + </Text>
         </Pressable>
     )
 }
