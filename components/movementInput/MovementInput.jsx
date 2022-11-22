@@ -1,13 +1,29 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
+import { v4 as uuidv4 } from 'uuid';
+import 'react-native-get-random-values';
 
 const MovementInput = ({ 
+    edit,
     balance,
     movement,
     setBalance,
     setMovement,
     onMovementAdd,
     showMovementInput, 
-    setShowMovementInput }) => {
+    setShowMovementInput,
+    modifyMovementHandler }) => {
+
+    const changenDescriptionHandlerId = ( value ) => {
+
+        setMovement(( movement )=>{
+            return{
+                ...movement,
+                description:value,
+                id:uuidv4()
+            }
+        });
+
+    }
 
     const changeDateMovementHandler = ( value ) => {
 
@@ -42,7 +58,7 @@ const MovementInput = ({
 
     }
 
-    const addProductHandler = () => {
+    const addMovementHandler = () => {
 
         if ( movement.description !== '' && movement.amount >= 0 
             || movement.amount <= 0 && movement.dateMovement !== '' ) {
@@ -57,6 +73,31 @@ const MovementInput = ({
                 }
             });
             setBalance(parseInt(balance) + parseInt(movement.amount));
+            setShowMovementInput( false )
+
+        } else {
+            alert(`Ejemplo: 
+            Fecha: 13/02/2022
+            Importe: 56
+            Descripción: Un par de zapatos`)
+        }
+    }
+
+    const editMovementHandler = () => {
+
+        if ( movement.description !== '' && movement.amount >= 0 
+            || movement.amount <= 0 && movement.dateMovement !== '' ) {
+
+            modifyMovementHandler(movement);
+            setMovement(( movement )=>{
+                return{
+                    ...movement,
+                    description: '',
+                    amount: 0,
+                    dateMovement: '',
+                }
+            });
+            /* setBalance(parseInt(balance) + parseInt(movement.amount)); */
             setShowMovementInput( false )
 
         } else {
@@ -90,12 +131,12 @@ const MovementInput = ({
                             style = { styles.textDescription }
                             placeholder = 'Descripción'
                             keyboardType = "text"
-                            onChangeText = { changenDescriptionHandler }
+                            onChangeText = { edit ? changenDescriptionHandler : changenDescriptionHandlerId }
                         />
                         <View style = { styles.enterButton }>
                             <Button 
-                                title = "Ingresar"
-                                onPress = { addProductHandler }
+                                title = { edit ? "Guardar" : "Ingresar" }
+                                onPress = { edit ? editMovementHandler : addMovementHandler }
                             />
                         </View>
                     </View>

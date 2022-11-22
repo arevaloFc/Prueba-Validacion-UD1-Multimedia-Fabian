@@ -1,6 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const ListItem = ({ movements, deleteMovement }) => {
+const ListItem = ({ setEdit, movements, deleteMovement, setShowMovementInput }) => {
+
+    const showToEdit = () => {
+        setEdit( true );
+        setShowMovementInput( true );
+    }
 
     return (
         <View style={styles.containerList} >
@@ -8,7 +13,8 @@ const ListItem = ({ movements, deleteMovement }) => {
                 <Text style={ styles.date }>Fecha: { movements.dateMovement } </Text>
                 <Text style={ styles.amount }>Importe: { movements.amount } € </Text>
                 <Text style={ styles.description }>Descripción: { movements.description } </Text>
-                <Text onPress={() => deleteMovement(movements)} > Eliminar </Text>
+                <Text onPress = { () => deleteMovement(movements) } > Eliminar </Text>
+                <Text onPress = { showToEdit}> Editar </Text>
             </View>
         </View>  
     )

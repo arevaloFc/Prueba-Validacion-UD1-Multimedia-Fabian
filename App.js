@@ -31,6 +31,30 @@ export default function App() {
   
   }
 
+  /* Editar un movimiento */
+  const [ edit, setEdit ] = useState(false)
+
+  const modifyMovementHandler = ( movement ) =>{
+  
+    let listMovements = movements.map(( value ) => {
+
+      let item = { ...value }
+
+      if ( item.id === movement.id ){
+        item.description = movement.description
+        item.amount = movement.amount
+        item.dateMovement = movement.dateMovement 
+      } 
+
+      return item
+
+    })
+
+    setMovements(listMovements);
+    setEdit(false);
+
+  }
+
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
@@ -42,23 +66,27 @@ export default function App() {
       <TotalBalance
         balance = { balance }
       />
-      <MovementInput 
-        balance = { balance }
+      <MovementInput
+        edit = { edit } 
+        balance = { balance } 
         movement = { movement }
         setBalance = { setBalance }
         setMovement = { setMovement }
         onMovementAdd = { addMovementHandler } 
         showMovementInput = { showMovementInput } 
         setShowMovementInput = { setShowMovementInput }
+        modifyMovementHandler = { modifyMovementHandler }
       />
       <FlatList 
         data = { movements } 
         renderItem = {( movementsData ) => {
           return (
             <ListItem 
+              setEdit = { setEdit }
               key = { movementsData.id }
               movements = { movementsData.item }
               deleteMovement = { deleteMovement }
+              setShowMovementInput = {setShowMovementInput}
             />
           )
         }}
