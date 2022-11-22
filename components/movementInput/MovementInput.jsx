@@ -1,6 +1,7 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
 
 const MovementInput = ({ 
+    movement,
     setMovement,
     showMovementInput, 
     setShowMovementInput }) => {
@@ -42,7 +43,6 @@ const MovementInput = ({
 
         if ( movement.description !== '' && movement.amount >= 0 && movement.dateMovement !== '' ) {
 
-            onMovementAdd( movement );
             setMovement(( movement )=>{
                 return{
                     ...movement,
@@ -52,7 +52,6 @@ const MovementInput = ({
                 }
             });
             setShowMovementInput( false )
-            setIngresosGastos( parseInt(ingresosGastos) + parseInt(movement.amount) );
 
         } else {
             alert(`Ejemplo: 

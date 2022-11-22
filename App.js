@@ -22,6 +22,7 @@ export default function App() {
   return (
     <View style = { styles.container }>
       <MovementInput 
+        movement = { movement }
         setMovement = { setMovement }
         showMovementInput = { showMovementInput } 
         setShowMovementInput = { setShowMovementInput }
