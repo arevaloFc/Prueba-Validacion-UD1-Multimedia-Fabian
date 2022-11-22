@@ -1,4 +1,5 @@
 import { Pressable, StyleSheet, Text } from 'react-native';
+import { palette } from '../../constants/theme';
 
 const ButtonFab = () => {
 
@@ -6,8 +7,8 @@ const ButtonFab = () => {
         <Pressable style={({ pressed }) => [
             {
                 backgroundColor: pressed
-                ? '#BBD2F2'
-                : '#5694EF'
+                ?  palette.light.secondaryLight
+                :  palette.light.secondaryDark
             },
             styles.pressableStyle
         ]}>
@@ -19,18 +20,18 @@ const ButtonFab = () => {
 const styles = StyleSheet.create({
 
     pressableStyle: {
-        borderRadius: 50,
         position: 'absolute',
         right: 50,
-        bottom: 50
+        bottom: 50,
+        borderRadius: 50
     },
 
     newMovement: {
+        textAlign: 'center',
         width: 50,
         height: 50,
-        textAlign: 'center',
-        borderRadius: 50,
-        fontSize: 35
+        fontSize: 35,
+        borderRadius: 50
     },
 
 });
