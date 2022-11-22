@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
 import ListItem from './components/listItem/ListItem';
+import TotalBalance from './components/totalBalance/TotalBalance';
 
 export default function App() {
 
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <View style = { styles.container }>
+      <TotalBalance/>
       <MovementInput 
         movement = { movement }
         setMovement = { setMovement }
