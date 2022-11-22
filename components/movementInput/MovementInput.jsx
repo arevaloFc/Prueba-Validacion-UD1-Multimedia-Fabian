@@ -135,8 +135,8 @@ const MovementInput = ({
                         />
                         <View style = { styles.enterButton }>
                             <Button 
-                                title = "Ingresar"
-                                onPress = { addMovementHandler }
+                                title = { edit ? "Guardar" : "Ingresar" }
+                                onPress = { edit ? editMovementHandler : addMovementHandler }
                             />
                         </View>
                     </View>
