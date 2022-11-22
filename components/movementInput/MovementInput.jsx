@@ -1,9 +1,15 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
 
-const MovementInput = () => {
+const MovementInput = ({ 
+        showMovementInput, 
+        setShowMovementInput }) => {
+
+    const ocultarModal = () => {
+        setShowMovementInput( false )
+    }
 
     return (
-        <Modal animationType = { 'fade' } transparent = { true }>
+        <Modal visible = { showMovementInput } animationType = { 'fade' } transparent = { true }>
             <ImageBackground source = { require("../../assets/entrada.jpg") } resizeMode = "cover">
                 <View style = { styles.orderHigher }>
                     <View style = { styles.firstBlock }>
@@ -27,6 +33,7 @@ const MovementInput = () => {
                         <View style = { styles.enterButton }>
                             <Button 
                                 title = "Ingresar"
+                                onPress = { ocultarModal }
                             />
                         </View>
                     </View>
