@@ -1,8 +1,20 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
 
 const MovementInput = ({ 
-        showMovementInput, 
-        setShowMovementInput }) => {
+    setMovement,
+    showMovementInput, 
+    setShowMovementInput }) => {
+
+    const changenDescriptionHandler = ( value ) => {
+
+        setMovement(( movement )=>{
+            return{
+                ...movement,
+                description:value,
+            }
+        });
+
+    }
 
     const ocultarModal = () => {
         setShowMovementInput( false )
@@ -29,6 +41,7 @@ const MovementInput = ({
                             style = { styles.textDescription }
                             placeholder = 'Descripción'
                             keyboardType = "text"
+                            onChangeText={changenDescriptionHandler}
                         />
                         <View style = { styles.enterButton }>
                             <Button 
