@@ -1,13 +1,29 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
+import { v4 as uuidv4 } from 'uuid';
+import 'react-native-get-random-values';
 
 const MovementInput = ({ 
+    edit,
     balance,
     movement,
     setBalance,
     setMovement,
     onMovementAdd,
     showMovementInput, 
-    setShowMovementInput }) => {
+    setShowMovementInput,
+    modifyMovementHandler }) => {
+
+    const changenDescriptionHandlerId = ( value ) => {
+
+        setMovement(( movement )=>{
+            return{
+                ...movement,
+                description:value,
+                id:uuidv4()
+            }
+        });
+
+    }
 
     const changeDateMovementHandler = ( value ) => {
 
@@ -67,6 +83,31 @@ const MovementInput = ({
         }
     }
 
+    const editMovementHandler = () => {
+
+        if ( movement.description !== '' && movement.amount >= 0 
+            || movement.amount <= 0 && movement.dateMovement !== '' ) {
+
+            modifyMovementHandler(movement);
+            setMovement(( movement )=>{
+                return{
+                    ...movement,
+                    description: '',
+                    amount: 0,
+                    dateMovement: '',
+                }
+            });
+            /* setBalance(parseInt(balance) + parseInt(movement.amount)); */
+            setShowMovementInput( false )
+
+        } else {
+            alert(`Ejemplo: 
+            Fecha: 13/02/2022
+            Importe: 56
+            Descripción: Un par de zapatos`)
+        }
+    }
+
     return (
         <Modal visible = { showMovementInput } animationType = { 'fade' } transparent = { true }>
             <ImageBackground source = { require("../../assets/entrada.jpg") } resizeMode = "cover">
@@ -90,7 +131,7 @@ const MovementInput = ({
                             style = { styles.textDescription }
                             placeholder = 'Descripción'
                             keyboardType = "text"
-                            onChangeText = { changenDescriptionHandler }
+                            onChangeText = { edit ? changenDescriptionHandler : changenDescriptionHandlerId }
                         />
                         <View style = { styles.enterButton }>
                             <Button 
