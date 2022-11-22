@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-const ListItem = ({ movements, deleteMovement }) => {
+const ListItem = ({ setEdit, movements, deleteMovement }) => {
 
     return (
         <View style={styles.containerList} >

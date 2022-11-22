@@ -31,6 +31,9 @@ export default function App() {
   
   }
 
+  /* Editar un movimiento */
+  const [ edit, setEdit ] = useState(false)
+
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
@@ -56,6 +59,7 @@ export default function App() {
         renderItem = {( movementsData ) => {
           return (
             <ListItem 
+              setEdit = { setEdit }
               key = { movementsData.id }
               movements = { movementsData.item }
               deleteMovement = { deleteMovement }
