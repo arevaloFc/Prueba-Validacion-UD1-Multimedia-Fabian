@@ -58,7 +58,7 @@ const MovementInput = ({
 
     }
 
-    const addProductHandler = () => {
+    const addMovementHandler = () => {
 
         if ( movement.description !== '' && movement.amount >= 0 
             || movement.amount <= 0 && movement.dateMovement !== '' ) {
@@ -136,7 +136,7 @@ const MovementInput = ({
                         <View style = { styles.enterButton }>
                             <Button 
                                 title = "Ingresar"
-                                onPress = { addProductHandler }
+                                onPress = { addMovementHandler }
                             />
                         </View>
                     </View>
