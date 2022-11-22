@@ -4,7 +4,7 @@ import { palette } from '../../constants/theme';
 const ButtonFab = () => {
 
     return (
-        <Pressable style={({ pressed }) => [
+        <Pressable style = {({ pressed }) => [
             {
                 backgroundColor: pressed
                 ?  palette.light.secondaryLight
@@ -12,7 +12,7 @@ const ButtonFab = () => {
             },
             styles.pressableStyle
         ]}>
-            <Text style={styles.newMovement}>+</Text>
+            <Text style = { styles.newMovement }> + </Text>
         </Pressable>
     )
 }
