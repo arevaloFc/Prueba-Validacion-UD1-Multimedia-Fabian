@@ -51,6 +51,7 @@ const MovementInput = ({
                     dateMovement: '',
                 }
             });
+            setShowMovementInput( false )
             setIngresosGastos( parseInt(ingresosGastos) + parseInt(movement.amount) );
 
         } else {
@@ -59,11 +60,6 @@ const MovementInput = ({
             Importe: 56
             Descripción: Un par de zapatos`)
         }
-    }
-
-
-    const ocultarModal = () => {
-        setShowMovementInput( false )
     }
 
     return (
