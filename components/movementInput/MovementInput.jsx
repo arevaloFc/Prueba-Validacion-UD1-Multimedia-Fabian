@@ -16,6 +16,17 @@ const MovementInput = ({
 
     }
 
+    const changenAmountHandler = ( value ) => {
+
+        setMovement(( movement )=>{
+            return{
+                ...movement,
+                amount:value
+            }
+        });
+
+    }
+
     const changenDescriptionHandler = ( value ) => {
 
         setMovement(( movement )=>{
@@ -47,6 +58,7 @@ const MovementInput = ({
                             style = { styles.firstBlockStyles }
                             placeholder = 'Importe'
                             keyboardType = "numeric"
+                            onChangeText = { changenAmountHandler }
                         />
                     </View>
                     <View style = { styles.secondBlock }>
