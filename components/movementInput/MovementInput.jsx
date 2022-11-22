@@ -3,6 +3,7 @@ import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'rea
 const MovementInput = ({ 
     movement,
     setMovement,
+    onMovementAdd,
     showMovementInput, 
     setShowMovementInput }) => {
 
@@ -42,7 +43,7 @@ const MovementInput = ({
     const addProductHandler = () => {
 
         if ( movement.description !== '' && movement.amount >= 0 && movement.dateMovement !== '' ) {
-
+            onMovementAdd( movement );
             setMovement(( movement )=>{
                 return{
                     ...movement,

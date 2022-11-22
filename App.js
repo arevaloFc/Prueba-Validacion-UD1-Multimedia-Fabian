@@ -16,6 +16,11 @@ export default function App() {
     dateMovement: ''
   });
 
+  /* Ingresar un movimiento */
+  const addMovementHandler = ( movement ) => {
+    setMovements(() => [movement,...movements]);
+  }
+
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
@@ -24,6 +29,7 @@ export default function App() {
       <MovementInput 
         movement = { movement }
         setMovement = { setMovement }
+        onMovementAdd = { addMovementHandler } 
         showMovementInput = { showMovementInput } 
         setShowMovementInput = { setShowMovementInput }
       />
