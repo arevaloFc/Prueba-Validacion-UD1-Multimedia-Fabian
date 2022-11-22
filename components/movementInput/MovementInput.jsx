@@ -1,7 +1,9 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
 
 const MovementInput = ({ 
+    balance,
     movement,
+    setBalance,
     setMovement,
     onMovementAdd,
     showMovementInput, 
@@ -42,7 +44,9 @@ const MovementInput = ({
 
     const addProductHandler = () => {
 
-        if ( movement.description !== '' && movement.amount >= 0 && movement.dateMovement !== '' ) {
+        if ( movement.description !== '' && movement.amount >= 0 
+            || movement.amount <= 0 && movement.dateMovement !== '' ) {
+
             onMovementAdd( movement );
             setMovement(( movement )=>{
                 return{
@@ -52,6 +56,7 @@ const MovementInput = ({
                     dateMovement: '',
                 }
             });
+            setBalance(parseInt(balance) + parseInt(movement.amount));
             setShowMovementInput( false )
 
         } else {

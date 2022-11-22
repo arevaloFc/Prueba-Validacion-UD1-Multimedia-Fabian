@@ -35,7 +35,9 @@ export default function App() {
         balance = { balance }
       />
       <MovementInput 
+        balance = { balance }
         movement = { movement }
+        setBalance = { setBalance }
         setMovement = { setMovement }
         onMovementAdd = { addMovementHandler } 
         showMovementInput = { showMovementInput } 
