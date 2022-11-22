@@ -38,6 +38,29 @@ const MovementInput = ({
 
     }
 
+    const addProductHandler = () => {
+
+        if ( movement.description !== '' && movement.amount >= 0 && movement.dateMovement !== '' ) {
+
+            onMovementAdd( movement );
+            setMovement(( movement )=>{
+                return{
+                    ...movement,
+                    description: '',
+                    amount: 0,
+                    dateMovement: '',
+                }
+            });
+            setIngresosGastos( parseInt(ingresosGastos) + parseInt(movement.amount) );
+
+        } else {
+            alert(`Ejemplo: 
+            Fecha: 13/02/2022
+            Importe: 56
+            Descripción: Un par de zapatos`)
+        }
+    }
+
 
     const ocultarModal = () => {
         setShowMovementInput( false )
@@ -71,7 +94,7 @@ const MovementInput = ({
                         <View style = { styles.enterButton }>
                             <Button 
                                 title = "Ingresar"
-                                onPress = { ocultarModal }
+                                onPress = { addProductHandler }
                             />
                         </View>
                     </View>
