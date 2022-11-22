@@ -3,6 +3,7 @@ import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
 import ListItem from './components/listItem/ListItem';
+import TotalBalance from './components/totalBalance/TotalBalance';
 
 export default function App() {
 
@@ -25,10 +26,18 @@ export default function App() {
   /* Mostrar el componente MovementInput al momento de presionar el ButtonFab */
   const [ showMovementInput, setShowMovementInput ] = useState( false );
 
+  /* Dinero total */
+  const [ balance, setBalance ] = useState(0)
+
   return (
     <View style = { styles.container }>
+      <TotalBalance
+        balance = { balance }
+      />
       <MovementInput 
+        balance = { balance }
         movement = { movement }
+        setBalance = { setBalance }
         setMovement = { setMovement }
         onMovementAdd = { addMovementHandler } 
         showMovementInput = { showMovementInput } 
