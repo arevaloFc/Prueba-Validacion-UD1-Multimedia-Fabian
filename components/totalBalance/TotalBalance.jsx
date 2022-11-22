@@ -3,19 +3,49 @@ import { ImageBackground, StyleSheet, Text, View } from 'react-native';
 const TotalBalance = () => {
 
     return (
-        <View>
+        <View style = { styles.containerTotalBalance }>
             <ImageBackground 
+                resizeMode = "cover" 
+                style = { styles.imageBackground }
                 source = { require("../../assets/paisaje01.jpg") } 
-                resizeMode="cover"
             >
-                <Text>Balance</Text>
-                <Text> €</Text>
+                <Text style = { styles.textBalance }> Balance </Text>
+                <Text style = { styles.totalMoney }> € </Text>
             </ImageBackground>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
+
+    containerTotalBalance: {
+        width: '100%',
+        height: 200
+    },
+
+    imageBackground: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 18
+    },
+
+    textBalance: {
+        textAlign: 'right',
+        marginBottom: 10,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#fff'
+    },
+
+    totalMoney: {
+        textAlign: 'center',
+        width: '40%',
+        padding: 6,
+        fontSize: 18,
+        backgroundColor: 'white'
+    }
 
 });
 
