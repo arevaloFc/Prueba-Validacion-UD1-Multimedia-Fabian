@@ -44,7 +44,7 @@ export default function App() {
             />
           )
         }}
-        style = { styles.flatlist } 
+        style = { styles.flatlistStyle } 
       />
       <ButtonFab 
         setShowMovementInput = { setShowMovementInput }
@@ -60,6 +60,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  flatlistStyle:{
+    width: '100%'
   },
 
 });
