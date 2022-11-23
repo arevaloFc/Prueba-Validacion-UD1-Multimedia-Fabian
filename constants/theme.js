@@ -6,5 +6,8 @@ export const palette  = {
 
         letterColor: '#FFFFFF',
         letterSize: 18,
+
+        colorButtonDelete: '#CD7878',
+        colorSecondButtonDelete: '#B62E2E'
     }
 }
