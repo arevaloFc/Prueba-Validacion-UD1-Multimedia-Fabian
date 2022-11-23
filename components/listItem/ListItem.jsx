@@ -8,12 +8,23 @@ const ListItem = ({ setEdit, movements, deleteMovement, setShowMovementInput }) 
         setShowMovementInput( true );
     }
 
+    let gastoOIngreso = movements.amount
+    let textGastoOIngreso = ''
+
+    if (gastoOIngreso < 0) {
+        textGastoOIngreso = 'Gasto:'
+    } else if ( gastoOIngreso > 0 ){
+        textGastoOIngreso = 'Ingreso:'
+    } else {
+        textGastoOIngreso = 'Importe:'
+    }
+
     return (
         <View style={styles.containerList} >
             <View style={styles.contentOrder}>
                 <View style={styles.contentBlock}>
                     <Text style={ styles.date }>Fecha: { movements.dateMovement } </Text>
-                    <Text style={ styles.amount }>Importe: { movements.amount } € </Text>
+                    <Text style={ styles.amount }>{ textGastoOIngreso } { movements.amount } € </Text>
                     <Text style={ styles.description }>Descripción: { movements.description } </Text>
                 </View>
                 <View>
@@ -70,6 +81,7 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderBottomWidth: 1,
+        fontWeight: palette.light.boldLetter,
         borderColor: palette.light.fifthColor
     },
 
@@ -78,6 +90,7 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderBottomWidth: 1,
+        fontWeight: palette.light.boldLetter,
         borderColor: palette.light.fifthColor
     },
 
