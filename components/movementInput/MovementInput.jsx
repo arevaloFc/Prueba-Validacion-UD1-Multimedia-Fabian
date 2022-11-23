@@ -1,6 +1,7 @@
 import { Button, ImageBackground, Modal, StyleSheet, TextInput, View } from 'react-native';
 import { v4 as uuidv4 } from 'uuid';
 import 'react-native-get-random-values';
+import { palette } from '../../constants/theme';
 
 const MovementInput = ({ 
     edit,
@@ -97,7 +98,6 @@ const MovementInput = ({
                     dateMovement: '',
                 }
             });
-            /* setBalance(parseInt(balance) + parseInt(movement.amount)); */
             setShowMovementInput( false )
 
         } else {
@@ -110,18 +110,19 @@ const MovementInput = ({
 
     return (
         <Modal visible = { showMovementInput } animationType = { 'fade' } transparent = { true }>
-            <ImageBackground source = { require("../../assets/entrada.jpg") } resizeMode = "cover">
+            <ImageBackground source = { require("../../assets/fondo03.jpg") } resizeMode = "cover">
                 <View style = { styles.orderHigher }>
                     <View style = { styles.firstBlock }>
                         <TextInput
                             style = { styles.firstBlockStyles }
-                            placeholder = 'Fecha'
+                            placeholder = 'Fecha: Ej(24/11/2022)'
+                            maxLength = { 10 } 
                             keyboardType = "text"
                             onChangeText = { changeDateMovementHandler }
                         />
                         <TextInput
                             style = { styles.firstBlockStyles }
-                            placeholder = 'Importe'
+                            placeholder = 'Importe: Ej(50)'
                             keyboardType = "numeric"
                             onChangeText = { changenAmountHandler }
                         />
@@ -129,7 +130,7 @@ const MovementInput = ({
                     <View style = { styles.secondBlock }>
                         <TextInput
                             style = { styles.textDescription }
-                            placeholder = 'Descripción'
+                            placeholder = 'Descripción Ej(Par de Zapatos)'
                             keyboardType = "text"
                             onChangeText = { edit ? changenDescriptionHandler : changenDescriptionHandlerId }
                         />
@@ -160,7 +161,7 @@ const styles = StyleSheet.create({
         width: '90%',
         marginTop: 30,
         padding: 5,
-        backgroundColor: '#424B7D'
+        backgroundColor: palette.light.fourthColor
     },
 
     secondBlock: {
@@ -170,23 +171,23 @@ const styles = StyleSheet.create({
         height: 120,
         padding: 5,
         marginTop: -12,
-        backgroundColor: '#424B7D'
+        backgroundColor: palette.light.fourthColor
     },
 
     firstBlockStyles: {
         flex: 1,
-        textAlign: 'center',
+        paddingLeft: 5,
         margin: 10,
         height: 45,
-        backgroundColor: '#fff'
+        backgroundColor: palette.light.colorWhite
     },
 
     textDescription: {
-        textAlign: 'center',
-        width: '60%',
+        paddingLeft: 5,
+        width: '65%',
         height: 50,  
         margin: 5,
-        backgroundColor: '#fff'
+        backgroundColor: palette.light.colorWhite
     },
 
     enterButton: {

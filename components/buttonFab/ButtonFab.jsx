@@ -7,8 +7,8 @@ const ButtonFab = ({ setShowMovementInput }) => {
         <Pressable onPress={() => {setShowMovementInput(true)}} style = {({ pressed }) => [
             {
                 backgroundColor: pressed
-                ?  palette.light.secondaryLight
-                :  palette.light.secondaryDark
+                ?  palette.light.primaryColor
+                :  palette.light.secondColor
             },
             styles.pressableStyle
         ]}>
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: 50,
         height: 50,
-        fontSize: 35,
+        fontSize: palette.light.letterExSizeMore,
         borderRadius: 50
     },
 

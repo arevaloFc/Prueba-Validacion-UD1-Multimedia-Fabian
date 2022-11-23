@@ -1,6 +1,17 @@
 import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { palette } from '../../constants/theme';
 
 const TotalBalance = ({ balance }) => {
+
+    let colorBalance = palette.light.colorWhite
+
+    if ( balance < 0 ) {
+        colorBalance = palette.light.colorNegativeBalance
+    } else if( balance > 0) {
+        colorBalance = palette.light.colorPositiveBalance
+    } else {
+        colorBalance = palette.light.colorWhite
+    }
 
     return (
         <View style = { styles.containerTotalBalance }>
@@ -10,7 +21,7 @@ const TotalBalance = ({ balance }) => {
                 source = { require("../../assets/paisaje01.jpg") } 
             >
                 <Text style = { styles.textBalance }> Balance </Text>
-                <Text style = { styles.totalMoney }> {balance} € </Text>
+                <Text style = { [ styles.totalMoney ,{ backgroundColor: colorBalance }] }> { balance } € </Text>
             </ImageBackground>
         </View>
     )
@@ -20,7 +31,8 @@ const styles = StyleSheet.create({
 
     containerTotalBalance: {
         width: '100%',
-        height: 200
+        height: 200,
+        marginBottom: 20
     },
 
     imageBackground: {
@@ -34,17 +46,16 @@ const styles = StyleSheet.create({
     textBalance: {
         textAlign: 'right',
         marginBottom: 10,
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#fff'
+        fontSize: palette.light.letterSizeMore,
+        fontWeight: palette.light.boldLetter,
+        color: palette.light.colorWhite
     },
 
     totalMoney: {
         textAlign: 'center',
         width: '40%',
         padding: 6,
-        fontSize: 18,
-        backgroundColor: 'white'
+        fontSize: palette.light.letterSize
     }
 
 });
