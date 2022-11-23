@@ -1,4 +1,4 @@
-import { FlatList, ImageBackground, StyleSheet, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, Text, View } from 'react-native';
 import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
@@ -72,6 +72,11 @@ export default function App() {
         <TotalBalance
           balance = { balance }
         />
+        <Text 
+          style = { styles.IncomeORExpenses}
+        > 
+          HISTORIAL
+        </Text>
         <MovementInput
           edit = { edit } 
           balance = { balance } 
@@ -124,5 +129,21 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%'
   },
+
+  IncomeORExpenses: {
+    textAlign: 'center',
+    position: 'absolute',
+    top: 180,
+    left: 16,
+    paddingTop: 5,
+    paddingLeft: 135,
+    paddingRight: 135,
+    paddingBottom: 5,
+    borderRadius: 10,
+    color: palette.light.letterColor,
+    fontSize: palette.light.letterSize,
+    fontWeight: 'bold',
+    backgroundColor: palette.light.thirdColor
+  }
 
 });
