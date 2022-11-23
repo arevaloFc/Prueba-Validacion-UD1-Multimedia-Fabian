@@ -7,8 +7,8 @@ const ButtonFab = ({ setShowMovementInput }) => {
         <Pressable onPress={() => {setShowMovementInput(true)}} style = {({ pressed }) => [
             {
                 backgroundColor: pressed
-                ?  palette.light.secondaryLight
-                :  palette.light.secondaryDark
+                ?  palette.light.primaryColor
+                :  palette.light.secondColor
             },
             styles.pressableStyle
         ]}>

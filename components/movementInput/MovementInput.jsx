@@ -97,7 +97,6 @@ const MovementInput = ({
                     dateMovement: '',
                 }
             });
-            /* setBalance(parseInt(balance) + parseInt(movement.amount)); */
             setShowMovementInput( false )
 
         } else {
@@ -110,7 +109,7 @@ const MovementInput = ({
 
     return (
         <Modal visible = { showMovementInput } animationType = { 'fade' } transparent = { true }>
-            <ImageBackground source = { require("../../assets/entrada.jpg") } resizeMode = "cover">
+            <ImageBackground source = { require("../../assets/fondo03.jpg") } resizeMode = "cover">
                 <View style = { styles.orderHigher }>
                     <View style = { styles.firstBlock }>
                         <TextInput

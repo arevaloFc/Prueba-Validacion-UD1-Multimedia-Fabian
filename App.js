@@ -1,9 +1,10 @@
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, ImageBackground, StyleSheet, View } from 'react-native';
 import { useState } from 'react';
 import ButtonFab from './components/buttonFab/ButtonFab';
 import MovementInput from './components/movementInput/MovementInput';
 import ListItem from './components/listItem/ListItem';
 import TotalBalance from './components/totalBalance/TotalBalance';
+import { palette } from './constants/theme';
 
 export default function App() {
 
@@ -63,38 +64,44 @@ export default function App() {
 
   return (
     <View style = { styles.container }>
-      <TotalBalance
-        balance = { balance }
-      />
-      <MovementInput
-        edit = { edit } 
-        balance = { balance } 
-        movement = { movement }
-        setBalance = { setBalance }
-        setMovement = { setMovement }
-        onMovementAdd = { addMovementHandler } 
-        showMovementInput = { showMovementInput } 
-        setShowMovementInput = { setShowMovementInput }
-        modifyMovementHandler = { modifyMovementHandler }
-      />
-      <FlatList 
-        data = { movements } 
-        renderItem = {( movementsData ) => {
-          return (
-            <ListItem 
-              setEdit = { setEdit }
-              key = { movementsData.id }
-              movements = { movementsData.item }
-              deleteMovement = { deleteMovement }
-              setShowMovementInput = {setShowMovementInput}
-            />
-          )
-        }}
-        style = { styles.flatlistStyle } 
-      />
-      <ButtonFab 
-        setShowMovementInput = { setShowMovementInput }
-      />
+      <ImageBackground 
+        resizeMode = "cover" 
+        style = { styles.imageBackground }
+        source = { require("./assets/fondo02.jpg") } 
+      >
+        <TotalBalance
+          balance = { balance }
+        />
+        <MovementInput
+          edit = { edit } 
+          balance = { balance } 
+          movement = { movement }
+          setBalance = { setBalance }
+          setMovement = { setMovement }
+          onMovementAdd = { addMovementHandler } 
+          showMovementInput = { showMovementInput } 
+          setShowMovementInput = { setShowMovementInput }
+          modifyMovementHandler = { modifyMovementHandler }
+        />
+        <FlatList 
+          data = { movements } 
+          renderItem = {( movementsData ) => {
+            return (
+              <ListItem 
+                setEdit = { setEdit }
+                key = { movementsData.id }
+                movements = { movementsData.item }
+                deleteMovement = { deleteMovement }
+                setShowMovementInput = {setShowMovementInput}
+              />
+            )
+          }}
+          style = { styles.flatlistStyle } 
+        />
+        <ButtonFab 
+          setShowMovementInput = { setShowMovementInput }
+        />
+      </ImageBackground>
     </View>
   );
 
@@ -103,6 +110,7 @@ export default function App() {
 const styles = StyleSheet.create({
 
   container: {
+    width: '100%',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
@@ -110,6 +118,11 @@ const styles = StyleSheet.create({
 
   flatlistStyle:{
     width: '100%'
+  },
+
+  imageBackground: {
+    width: '100%',
+    height: '100%'
   },
 
 });
