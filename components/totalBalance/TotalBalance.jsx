@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         textAlign: 'right',
         marginBottom: 10,
         fontSize: palette.light.letterSizeMore,
-        fontWeight: 'bold',
+        fontWeight: palette.light.boldLetter,
         color: palette.light.letterColor
     },
 

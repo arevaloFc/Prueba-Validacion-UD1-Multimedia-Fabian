@@ -116,7 +116,7 @@ const MovementInput = ({
                         <TextInput
                             style = { styles.firstBlockStyles }
                             placeholder = 'Fecha: Ej(24/11/2022)'
-                            maxLength = {10}
+                            maxLength = { 10 } 
                             keyboardType = "text"
                             onChangeText = { changeDateMovementHandler }
                         />
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         margin: 10,
         height: 45,
-        backgroundColor: '#fff'
+        backgroundColor: palette.light.letterColor
     },
 
     textDescription: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         width: '65%',
         height: 50,  
         margin: 5,
-        backgroundColor: '#fff'
+        backgroundColor: palette.light.letterColor
     },
 
     enterButton: {
