@@ -6,8 +6,13 @@ export const palette  = {
 
         letterColor: '#FFFFFF',
         letterSize: 18,
+        letterSizeMore: 22,
 
         colorButtonDelete: '#CD7878',
-        colorSecondButtonDelete: '#B62E2E'
+        colorSecondButtonDelete: '#B62E2E',
+
+        colorNegativeBalance: '#F3C7C7',
+        colorPositiveBalance: '#F0F8EA'
+
     }
 }
