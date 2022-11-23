@@ -4,11 +4,12 @@ export const palette  = {
         secondColor: '#5694EF',
         thirdColor: '#2C4A61',
         fourthColor: '#E0F1F7',
+        fifthColor: '#B2B2B2',
+        colorWhite: '#FFFFFF',
 
-
-        letterColor: '#FFFFFF',
         letterSize: 18,
         letterSizeMore: 22,
+        letterExSizeMore: 35,
         boldLetter:'bold',
 
         colorButtonDelete: '#CD7878',

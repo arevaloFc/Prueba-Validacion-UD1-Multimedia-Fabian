@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         margin: 10,
         height: 45,
-        backgroundColor: palette.light.letterColor
+        backgroundColor: palette.light.colorWhite
     },
 
     textDescription: {
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
         width: '65%',
         height: 50,  
         margin: 5,
-        backgroundColor: palette.light.letterColor
+        backgroundColor: palette.light.colorWhite
     },
 
     enterButton: {

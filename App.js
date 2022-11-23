@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
     paddingRight: 135,
     paddingBottom: 5,
     borderRadius: 10,
-    color: palette.light.letterColor,
+    color: palette.light.colorWhite,
     fontSize: palette.light.letterSize,
     fontWeight: palette.light.boldLetter,
     backgroundColor: palette.light.thirdColor

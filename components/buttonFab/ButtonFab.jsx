@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: 50,
         height: 50,
-        fontSize: 35,
+        fontSize: palette.light.letterExSizeMore,
         borderRadius: 50
     },
 

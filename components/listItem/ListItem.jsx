@@ -61,8 +61,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         width: '80%',
         borderWidth: 1,
-        borderColor: '#A9A9A9',
-        backgroundColor: 'white',
+        backgroundColor: palette.light.colorWhite,
         borderRadius: 5
     },
 
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderBottomWidth: 1,
-        borderColor: '#A9A9A9'
+        borderColor: palette.light.fifthColor
     },
 
     amount:{
@@ -79,7 +78,7 @@ const styles = StyleSheet.create({
         margin: 5,
         padding: 10,
         borderBottomWidth: 1,
-        borderColor: '#A9A9A9'
+        borderColor: palette.light.fifthColor
     },
 
     description:{

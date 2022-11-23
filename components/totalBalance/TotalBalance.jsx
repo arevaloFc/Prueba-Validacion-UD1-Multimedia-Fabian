@@ -3,14 +3,14 @@ import { palette } from '../../constants/theme';
 
 const TotalBalance = ({ balance }) => {
 
-    let colorBalance = palette.light.letterColor
+    let colorBalance = palette.light.colorWhite
 
     if ( balance < 0 ) {
         colorBalance = palette.light.colorNegativeBalance
     } else if( balance > 0) {
         colorBalance = palette.light.colorPositiveBalance
     } else {
-        colorBalance = palette.light.letterColor
+        colorBalance = palette.light.colorWhite
     }
 
     return (
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         fontSize: palette.light.letterSizeMore,
         fontWeight: palette.light.boldLetter,
-        color: palette.light.letterColor
+        color: palette.light.colorWhite
     },
 
     totalMoney: {
